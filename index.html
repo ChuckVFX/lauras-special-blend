@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laura's Special Blend</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracota: #9E442F;
+      --arcilla: #BA5627;
+      --arena: #EBDFC1;
+      --crema: #F5E8E2;
+      --carbon: #2D241F;
+      --olivo: #71724F;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Playfair',sans-serif;
+      background:var(--arena);
+      color:var(--carbon);
+      line-height:1.7;
+    }
+    h1,h2,h3 {
+      font-family:'Playfair Display',serif;
+    }
+
+    header {
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background:var(--terracota);
+      padding:22px 5%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 6px 25px rgba(156,74,60,0.25);
+    }
+    .logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    }
+    nav ul {
+      list-style:none;
+      display:flex;
+      gap:45px;
+    }
+    nav a {
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      position:relative;
+    }
+    nav a::after {
+      content:'';
+      position:absolute;
+      bottom:-10px;
+      left:0;
+      width:0;
+      height:3px;
+      background:var(--arcilla);
+      transition:0.4s;
+    }
+    nav a:hover::after {
+      width:100%;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--terracota);
+        display: none;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('images/LauraHero2.png') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 10%;
+      color: white;
+      position: relative;
+    }
+    .hero h1 {
+      font-size:4rem;
+      margin-bottom:20px;
+      text-shadow:3px 3px 10px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size:1.6rem;
+      margin-bottom:50px;
+    }
+    .btn {
+      background:var(--arcilla);
+      color:white;
+      padding:18px 50px;
+      border:none;
+      font-size:1.3rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.4s;
+    }
+    .btn:hover {
+      background:#b34a37;
+      transform:scale(1.05);
+    }
+
+    .cuatro {
+      display:flex;
+      flex-wrap:wrap;
+    }
+    .cuatro a {
+      flex:1;
+      min-width:280px;
+      padding:90px 30px;
+      text-align:center;
+      color:white;
+      text-decoration:none;
+      transition:0.4s;
+    }
+    .cuatro a:hover {
+      transform:translateY(-20px);
+      filter:brightness(1.1);
+    }
+    .c1 { background:var(--terracota); }
+    .c2 { background:var(--arcilla); }
+    .c3 { background:var(--olivo); }
+    .c4 { background:#88443a; }
+
+    .productos {
+      padding:140px 10%;
+      background:var(--crema);
+      text-align:center;
+    }
+    .productos h2 {
+      font-size:4rem;
+      color:var(--terracota);
+      margin-bottom:60px;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:40px;
+    }
+    .card {
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 15px 40px rgba(156,74,60,0.15);
+    }
+    .card img {
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+    .card h3 {
+      padding:30px 20px 15px;
+      color:var(--terracota);
+    }
+    .card p {
+      padding:0 20px 30px;
+      color:var(--carbon);
+    }
+
+    footer {
+      background:var(--carbon);
+      color:white;
+      padding:80px 10% 40px;
+      text-align:center;
+    }
+    footer .logo-footer {
+      font-size:3rem;
+      color:var(--arcilla);
+      margin-bottom:20px;
+	  font-family: 'Playfair Display', serif;	
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Laura's Special Blend</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="index2.html#history">Nosotros</a></li>
+      <li><a href="index2.html#coffees">Cafés</a></li>
+      <li><a href="index2.html#usa">Exportación</a></li>
+      <li><a href="index2.html#blog">Blog</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>No es solo café.<br>Es tu ritual.</h1>
+</section>
+
+<div class="cuatro">
+  <a href="index2.html#history" class="c1"><h3>Nuestra<br>Historia</h3></a>
+  <a href="index2.html#coffees" class="c2"><h3>Nuestros<br>Cafés</h3></a>
+  <a href="index2.html#usa" class="c3"><h3>Exportación<br>Estados Unidos</h3></a>
+  <a href="index2.html#blog" class="c4"><h3>Blog<br>Historias del Café</h3></a>
+</div>
+
+<section class="productos">
+  <h2>Nuestros cafés más amados</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="images/photo-1512568400610-62da28bc8a13.jpeg" alt="Café Chiapas">
+      <h3>Chiapas Orgánico</h3>
+      <p>Notas a chocolate amargo y nuez</p>
+    </div>
+    <div class="card">
+      <img src="images/photo-1512568400610-62da28bc8a13.jpeg" alt="Café Veracruz">
+      <h3>Veracruz Reserva</h3>
+      <p>Cuerpo intenso, final a caramelo</p>
+    </div>
+    <div class="card">
+      <img src="images/photo-1512568400610-62da28bc8a13.jpeg" alt="Mezcla Secrecta">
+      <h3>Blend Laura's</h3>
+      <p>Nuestra mezcla secreta desde 2018</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo-footer">Laura's Special Blend</div>
+  <p>© 2025 Laura's Café • Hecho con pasión en México</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navList = document.querySelector('nav ul');
+  navList.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
